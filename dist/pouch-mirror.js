@@ -135,6 +135,11 @@ PouchMirror.prototype.get = function () {
   return self._readDB.get.apply(self._readDB, arguments);
 };
 
+PouchMirror.prototype.find = function () {
+  var self = this;
+  return self._readDB.find.apply(self._readDB, arguments);
+};
+
 PouchMirror.prototype.allDocs = function () {
   var self = this;
   return self._readDB.allDocs.apply(self._readDB, arguments);
@@ -364,7 +369,7 @@ module.exports = function (db) {
     }
     return deferred.promise;
   }
-  
+
   return {
     waitForChange: waitForChange,
     cancel: function() {
